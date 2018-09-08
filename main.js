@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    //select .pixel elements
+    //select .pixel elements, creates our canvas
     var canvas = document.getElementsByClassName("canvas");
     var pixel = document.getElementsByClassName("pixel");
     var clientWidth = canvas[0].clientWidth;
@@ -11,12 +11,13 @@ document.addEventListener('DOMContentLoaded', function () {
         var div = document.createElement("DIV");
         div.classList.add("pixel");
         canvas[0].append(div);
-        divArea += 50;
+        divArea += 175;
     }
 
 
     //when clicking a paint-brush box, change class to certain color
     var brushColor = "red";
+    // var currentColor = document.getElementByID("current-color-box").style.backgroundColor;
 
     var brush = document.getElementsByClassName("brush");
     console.log(canvas);
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
     for (var i = 0; i < brush.length; i++) {
         brush[i].addEventListener("click", function (event) {
             brushColor = event.target.id;
+            document.getElementById("current-color-box").style.backgroundColor = brushColor;
         })
     }
 
