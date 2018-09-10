@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: purple;
+    background-color: #9b59b6;
 }
 .container {
     width: 90%;
@@ -16,6 +16,7 @@ body {
 .row {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 .canvas {
     margin: 0 auto;
@@ -41,8 +42,8 @@ body {
 }
 
 .brush {
-    height: 50px;
-    width: 50px;
+    height: 30px;
+    width: 30px;
     border: 1px solid  #95a5a6;
     background-color: blue;
     border-radius: 50%;
@@ -98,7 +99,7 @@ body {
     background-color: yellow;
 }
 
-#mintcream {
+#white {
     background-color: mintcream;
 }
 
@@ -121,7 +122,7 @@ body {
 }
 
 .current-color {
-    margin-left: 10px;
+    margin-left: .5em;
 }
 .current-color p {
     color: darkslategray;
@@ -132,4 +133,20 @@ body {
     width: 100%;
     background-color: firebrick;
     border-radius: 5%;
+}
+
+.brush-functions{
+    display: flex;
+    flex-direction: row;
+    font-size: 3em;
+    margin-left: .5em;
+}
+
+.brush-functions i {
+    color: darkgray;
+    transition: color .4s;
+}
+
+.brush-functions i:hover {
+    color: blue;
 }

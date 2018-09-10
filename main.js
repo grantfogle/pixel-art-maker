@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    for (var i = 0; i < brush.length; i++) {
+    for (let i = 0; i < brush.length; i++) {
         brush[i].addEventListener("click", function (event) {
             brushColor = event.target.id;
             document.getElementById("current-color-box").style.backgroundColor = brushColor;
@@ -33,14 +33,59 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     //change color when clicked
+    //add brush functionality function -- This works!
+    // for (let i = 0; i < pixel.length; i++) {
+    //     pixel[i].addEventListener("mousedown", function () {
+    //         event.target.style.backgroundColor = brushColor;
+    //     });
+    // }
 
-    for (var i = 0; i < pixel.length; i++) {
-        pixel[i].addEventListener("mouseover", function () {
+    //change functionality of brush
+    //mousedown
+    var brushFunction = "click";
+    var fill = document.getElementById("flood");
+
+    //make it so all of the pixels are flooded with that color
+    fill.addEventListener("click", function () {
+        for (let i = 0; i < pixel.length; i++) {
+            pixel[i].style.backgroundColor = brushColor;
+        }
+    });
+
+    //while mousedown is clicked = true
+    //change colors on mouseenter function 
+    //mouse up is clicked  false
+
+    var isClicked = false;
+
+    //inside a pixel for loop
+    for (let i = 0; i < pixel.length; i++) {
+        // if (mousedown == true) {
+        // pixel[i].addEventListener(
+        document.addEventListener("mousedown", function () {
+            isClicked = true;
+            pixel[i].addEventListener("mouseover", function () {
+                if (isClicked) {
+                    event.target.style.backgroundColor = brushColor;
+                }
+            });
+        });
+        isClicked = false;
+
+        //on mouseup, isclicked is false
+        document.addEventListener("mouseup", function () {
+            isClicked = false;
+        })
+
+        pixel[i].addEventListener("click", function () {
             event.target.style.backgroundColor = brushColor;
         });
+
+
     }
+    // if 
 
-
+    // mouseup, mousenter, change
     //create a grid layout
 
     // var row = 
